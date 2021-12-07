@@ -37,6 +37,11 @@ def test_delete_account_success():
     assert True
     
     
+def test_get_all_customer_accounts():
+    accounts=account_dao.get_all_customer_accounts(39)
+    assert len(accounts) >=1
+    
+    
 def test_deposit_account_success():
     deposited_account=account_dao.deposit_into_account(account2)
     assert deposited_account.account_balance==account2.account_balance
