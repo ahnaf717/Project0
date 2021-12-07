@@ -23,6 +23,10 @@ class AccountService(ABC):
     @abstractmethod
     def service_get_all_accounts(self):
         pass
+    
+      @abstractmethod
+    def service_get_all_customer_accounts(self,customer_id):
+        pass
 
     @abstractmethod
     def service_deposit_into_account(self,account:Account):
