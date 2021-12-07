@@ -28,6 +28,10 @@ class AccountServiceImp(AccountService):
     def service_get_all_accounts(self):
         return self.account_dao.get_all_accounts()
     
+    def service_get_all_customer_accounts(self, customer_id):
+        return self.account_dao.get_all_customer_accounts(customer_id)
+    
+    
     
     def service_deposit_into_account(self,account_ID,deposit_amount:int):
         #make sure that deposit amount is greater than zero
