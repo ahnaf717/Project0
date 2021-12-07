@@ -126,6 +126,17 @@ def get_all_accounts():
         accounts_as_dictionaries.append(dictionary_account)
     return jsonify(accounts_as_dictionaries), 200
 
+
+#get all customer's account
+@app.get("/gets/<customer_id>")
+def get_all_customer_account_information(customer_id):
+    customer_accounts = account_service.service_get_all_customer_accounts(customer_id)
+    accounts_as_dictionaries= []
+    for account in customer_accounts:
+        dictionary_account = account.create_account_dictionary()
+        accounts_as_dictionaries.append(dictionary_account)
+    return jsonify(accounts_as_dictionaries), 200
+
 #delete customer information
 @app.delete("/account/<account_ID>")
 def delete_account(account_ID: str):
