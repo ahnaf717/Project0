@@ -39,6 +39,21 @@ class AccountPostgresDAO(AccountDAO):
         for account in account_records:
             accounts.append(Account(*account))
         return accounts
+    
+    def get_all_customer_accounts(self,customer_id):
+        sql="select * from account where customer_id=%s"
+        cursor = connection.cursor()
+        cursor.execute(sql, [customer_id])
+        account_records = cursor.fetchall()
+        accounts = []
+        for account in account_records:
+            accounts.append(Account(*account))
+        return accounts
+        
+    
+    
+    
+    
 
     def deposit_into_account(self, account: Account):
         sql="update account set account_balance =%s where account_ID=%s"
