@@ -27,6 +27,14 @@ class AccountDAO(ABC):
     def get_all_accounts(self) :
         pass
 
+      @abstractmethod
+    def service_get_all_customer_accounts(self,customer_id):
+        pass
+    
+    
+    
+    
+    
     @abstractmethod
     def deposit_into_account(self,account:Account):
         pass
