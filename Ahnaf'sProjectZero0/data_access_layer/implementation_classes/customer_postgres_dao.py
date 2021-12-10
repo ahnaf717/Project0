@@ -7,8 +7,6 @@ class CustomerPostgresDAO(CustomerDAO):
     def create_customer_entry(self, customer: Customer):
         sql="insert into customer values (default,%s,%s,%s,%s) returning customer_id"
         cursor = connection.cursor()
-        # we pass in our sql to the cursor's execute method, and inside a tuple we then pass in the
-        # values for the insert command
         cursor.execute(sql, (customer.first_name,customer.last_name,customer.customer_age , customer.phone_number))
         connection.commit()
         generated_customer_id = cursor.fetchone()[0]
